@@ -1,16 +1,18 @@
 # Q&A Chatbot with Groq
 
 A simple yet powerful Q&A chatbot built using Streamlit and LangChain, powered by Groq’s lightning-fast LLMs.  
-This chatbot allows users to ask any question and receive structured, conversational answers in real time.
+This chatbot allows users to ask any question via text or voice input and receive structured, conversational answers in real time.
 
 ## Features
 
 - Built using LangChain + Groq API
 - Clean Streamlit web interface
-- Choose from multiple Groq-supported models
+- Choose from multiple Groq-supported models (including Whisper for voice transcription)
 - Adjustable temperature (creativity) and max token limits
 - Simple settings sidebar for easy configuration
 - Structured response display (no colored boxes)
+- Voice input mode using Groq Whisper for audio transcription
+- Text input mode for direct question entry
 
 ---
 
@@ -70,10 +72,17 @@ The app will open in your browser (usually at http://localhost:8501).
 ## Usage
 
 - Enter your Groq API Key in the sidebar.
-- Choose a model (e.g., llama-3.1-8b-instant).
+- Choose a model (e.g., llama-3.1-8b-instant for text, whisper-large-v3 for voice).
 - Adjust the temperature and max tokens as needed.
+
+### Text Input Mode
 - Type your question in the input box and press Enter.
 - The chatbot will generate a well-structured response below.
+
+### Voice Input Mode
+- Select a Whisper model (e.g., whisper-large-v3).
+- Click the audio input to record your question.
+- The app will transcribe your speech using Groq Whisper and then generate a response using a text model.
 
 ---
 
@@ -95,14 +104,16 @@ Q-A-Chatbot/
 - Python 3.11+
 - Streamlit – Web UI framework
 - LangChain – Prompt & LLM chaining
-- Groq API – Fast LLM inference
+- Groq API – Fast LLM inference and audio transcription
 - python-dotenv – Environment variable management
+- requests – HTTP requests for API calls
+- tempfile – Temporary file handling for audio
 
 ---
 
 ## Example Output
 
-**User:**  
+**User (Text):**  
 What is artificial intelligence?
 
 **AI Response:**  
@@ -110,13 +121,21 @@ Artificial Intelligence (AI) is a field of computer science that focuses on buil
 
 Examples include chatbots, recommendation systems, and self-driving cars.
 
+**User (Voice):**  
+[Audio recording of "What is machine learning?"]
+
+**Transcribed Question:** What is machine learning?
+
+**AI Response:**  
+Machine Learning is a subset of AI that enables systems to learn from data and improve performance without being explicitly programmed.
+
 ---
 
 ## Future Improvements
 
 - Add chat history memory
 - Support file/document uploads for contextual Q&A
-- Add speech-to-text and text-to-speech functionality
+- Add text-to-speech functionality
 
 ---
 

@@ -4,3 +4,9 @@ python-dotenv
 langchain_community
 langchain_core
 streamlit
+streamlit-webrtc
+soundfile
+matplotlib 
+av 
+numpy
+openai-whisper
